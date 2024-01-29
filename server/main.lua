@@ -170,7 +170,8 @@ RegisterNetEvent('qb-multicharacter:server:createCharacter', function(data)
         TriggerClientEvent("qb-multicharacter:client:closeNUI", src)
         newData.citizenid = QBCore.Functions.GetPlayer(src).PlayerData.citizenid
         TriggerClientEvent('ps-housing:client:setupSpawnUI', src, newData)
-        GiveStarterItems(src)
+        --GiveStarterItems(src) -- removed by pamela for um-idcard
+        exports['um-idcard']:CreateMetaLicense(src, {'id_card','driver_license'}) -- added by pamela for um-idcard
     end
 end)
 --till here
